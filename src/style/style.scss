@@ -1,6 +1,53 @@
 @use "utils/a11y"; // Om det inte funkar, byt @use mot @import
 @use "vendor/reset";
 
+$primaryColor: #C2C2F2;
+$secondaryColor: #ACB6BF;
+$contrastColorFirst:#F2D2C2;
+$contrastColorSecond: #C7A381;
+$textColor: #484859;
+
+body {
+  color: $textColor;
+  font-size: 1rem;
+  font-family: Rubik, sans-serif;
+  display: flex;
+}
+
+.header {
+  background-color: $contrastColorFirst;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 50px;
+  z-index: 1;
+  width: 100%;
+}
+
+.electricityPrice {
+  display: flex;
+  position: absolute;
+  background-color: $primaryColor;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../public/photos/windTurbines.jpg");
+  opacity: 0.3;
+  background-position: center;
+  background-size: cover;
+}
+
+.savingMoney {
+  background-color: $secondaryColor;
+  position:relative;
+  z-index: 1;
+  top: 500px;
+  left: 50px;
+  max-width: 200px;
+
+}
+
+
+/*
 :root {
   // TODO: Går bra att radera kod även här!
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -62,3 +109,4 @@ main {
     }
   }
 }
+*/
