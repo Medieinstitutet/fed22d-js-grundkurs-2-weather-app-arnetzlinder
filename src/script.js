@@ -11,6 +11,7 @@ Funktioner
 - Notiser el dyl när du borde ladda bilen/torktumla/något annat som drar mycket el
 - En ruta som berättar vad det kostar att ladda bilen/torktumla/något annat som drar mycket el just nu och hur mycket du sparar om du väntar 
     till dygnets billigaste timme
+- En notis som meddelar användaren när det är möjligt att duscha för en krona exempelvis
 
 
     TODO
