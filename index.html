@@ -5,16 +5,23 @@
     <link rel="icon" type="image/ico" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
-    <!--Styling-->
-    <link rel="stylesheet" href="css/normalize.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./src/style/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elpriskollen</title>
   </head>
   <body>
     <header>
-      <div class= "windTurbines">Här kommer det finnas info om elpris samt snurrande vindkraftverk/liknande</div>
+      <div class="header">
+        <img src="public/photos/windTurbine.gif">
+        <div class="appName"> 
+          <h1>Energikollen</h1>
+        </div>
+      </div>
       <div class="menu">
         <button class="menuOpener" aria-label="Menu-button" tabindex="0">
             <span></span>
@@ -38,7 +45,20 @@
      </div>
     </header>
     <main>
-      <div class="sortingMenu"></div>
+      <div class="electricityArea">
+        <form>
+          <label for="electricityArea"></label>
+          <select name="electricityArea" class="chooseElectricityArea">
+              <option value="gpsValue" tabindex="0" disabled selected>
+                  Elprisområde
+              </option>
+              <option value="electricityArea1" tabindex="0">Elprisområde 1</option>
+              <option value="electricityArea2" tabindex="0">Elprisområde 2</option>
+              <option value="electricityArea3" tabindex="0">Elprisområde 3</option>
+              <option value="electricityArea4" tabindex="0">Elprisområde 4</option>
+          </select> 
+          </form>
+      </div>
       <div class="electricityPrice"> Här tänkte jag lägga in vad elpriset är just nu</div>
       <section class="electricitySaver">Här kommer det finnas info om vad det skulle kosta att göra xxx just nu och vad du skulle spara om du gjorde det den billigaste timmen istället.</section>
     </main>
