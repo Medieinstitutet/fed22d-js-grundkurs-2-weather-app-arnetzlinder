@@ -28,3 +28,5 @@ Funktioner
     * 
 
 */ 
+
+let electricityArea = document.querySelector(".electricityArea");
