@@ -30,6 +30,7 @@ header {
   display: flex;
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 .appName {
   padding: 10px;
   display: flex;
@@ -37,101 +38,9 @@ header {
   align-items: center;
 
   h1 {
-    font-family: "Orbitron", sans-serif
+    font-family: Orbitron, sans-serif;
     margin-left: 10px;
   }
-}
-
-nav {
-  background-color: $contrastColorFirst;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  transition: all 0.4s ease-in-out;
-  position: fixed;
-  z-index: 5;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding-top: 70px;
-    list-style: none;
-    height: 100%;
-    font-size: 3rem;
-    text-align: center;
-    font-weight: 600;
-  }
-
-  a {
-    text-decoration: none;
-    color: $textColor;
-  }
-}
-
-button {
-  width: 45px;
-  height: 45px;
-  background: transparent;
-  border: 0;
-  position: fixed;
-  right: 20px;
-  top: 10px;
-  z-index: 3;
-  cursor: pointer;
-}
-
-#checkbox {
-  display: none;
-}
-
-/* stylelint-disable-next-line selector-class-pattern */
-.menuOpener {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 3;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-
-  span {
-    display: block;
-    width: 35px;
-    height: 5px;
-    background-color: $textColor;
-    margin-bottom: 5px;
-    position: relative;
-    left: 0;
-    margin-left: 6px;
-    cursor: pointer;
-  }
-
-  span:nth-child(2) {
-    margin-left: 0;
-    transition: all 0.4s ease-in-out;
-  }
-}
-
-div.menu button:hover span:nth-child(2) {
-  left: 6px;
-}
-
-/* stylelint-disable-next-line selector-class-pattern */
-.menuCloser {
-  display: none;
-  font-size: 60px;
-  font-weight: bold;
-  color: $secondaryColor;
-  z-index: 4;
-  right: 10px;
-  top: 2px;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  position: fixed;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -146,6 +55,8 @@ div.menu button:hover span:nth-child(2) {
     left: 0;
     opacity: 0.3;
 }
+
+/* stylelint-disable-next-line selector-class-pattern */
 .electricityArea {
   background-color: $contrastColorSecond;
   position: relative; 
@@ -157,20 +68,25 @@ div.menu button:hover span:nth-child(2) {
   
   form {
   position: relative;
+  margin-bottom: 120px;
   color: $textColor; 
   background-color: #C7A381;
   line-height: 0.9;
   text-align: center;
   }
 
+  /* stylelint-disable-next-line selector-class-pattern */
   .chooseElectricityArea {
     padding: 10px;
-    border-radius: 20px;
     font-size: 2rem;
-    font-family: Rubik, sans-serif;
+    font-family: Orbitron, sans-serif;
+    font-weight: 400;
     background-color: $primaryColor;
     color: $textColor;
-    }
+    
+  option {
+    padding: 15px;
+  }}
 }
 
 
