@@ -113,10 +113,13 @@ header {
   background-color: $primaryColor;
   position: relative;
   
-  h1 {
-    font-size: 3rem;
-    margin: 50px;
+  h2 {
+    font-size: 2.5rem;
+    margin: auto;
+    top: 70px;
+    left:20px;
     opacity: 1;
+    font-family: Orbitron, sans-serif;
   }
 }
 
