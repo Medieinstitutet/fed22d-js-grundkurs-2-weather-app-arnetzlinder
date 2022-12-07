@@ -10,7 +10,6 @@ $textColor: #484859;
 body {
   color: $textColor;
   font-size: 1rem;
-  font-family: Rubik, sans-serif;
 }
 
 header {
@@ -86,21 +85,39 @@ header {
     
   option {
     padding: 15px;
+    font-family: Orbitron, sans-serif;
   }}
 }
 
 
 /* stylelint-disable-next-line selector-class-pattern */
-.electricityPrice {
-  display: flex;
+.electricityPrice::before  {
+  content: "";
+  background-image: url("../../public/photos/windTurbines.jpg");
+  background-size: cover;
   position: absolute;
-  background-color: $primaryColor;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.electricityPrice {
   height: 100vh;
   width: 100%;
-  background-image: url("../../public/photos/windTurbines.jpg");
-  opacity: 0.3;
-  background-position: center;
-  background-size: cover;
+  display: flex;
+  align-items:flex-start;
+  justify-content: center;
+  background-color: $primaryColor;
+  position: relative;
+  
+  h1 {
+    font-size: 3rem;
+    margin: 50px;
+    opacity: 1;
+  }
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -108,7 +125,7 @@ header {
   background-color: $secondaryColor;
   position:relative;
   z-index: 1;
-  top: 500px;
+  top: -200px;
   left: 50px;
   max-width: 200px;
 
