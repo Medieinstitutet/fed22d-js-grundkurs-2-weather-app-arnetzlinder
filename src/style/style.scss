@@ -111,7 +111,7 @@ header {
   align-items:flex-start;
   justify-content: center;
   background-color: $primaryColor;
-  position: relative;
+  position: absolute;
   
   h2 {
     font-size: 2.5rem;
@@ -128,9 +128,10 @@ header {
   background-color: $secondaryColor;
   position:relative;
   z-index: 1;
-  top: -200px;
   left: 50px;
   max-width: 200px;
+  display: flex;
+  flex-direction: column-reverse;
 
 }
 
