@@ -41,8 +41,31 @@
       <section class="electricityPrice"> 
         <h2>Elpris just nu</h2>
       </section>
-      <section class="electricitySaver">Här kommer det finnas info om vad det skulle kosta att göra xxx just nu och vad du skulle spara om du gjorde det den billigaste timmen istället.</section>
+      <section class="electricitySaver">
+        <div class="electricitySaverForm">
+        <form>
+          <label for="electricitySaver"></label>
+          <select name="electricitySaver" class="chooseSpendingMethod">
+              <option value="activity" tabindex="0" disabled selected>
+                  Välj vad du vill göra
+              </option>
+              <option value="shower" tabindex="0">Duscha i tio minuter</option>
+              <option value="dryer" tabindex="0">Torktumla en tvätt</option>
+              <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
+          </select> 
+          </form>
+        </div>
+        <div class="electricitySaverInfo">
+          <p>Om du gör det nu:</p>
+          <p> Om du gör det om en timme:</p>
+          <p> Om du gör det klockan tt:mm:</p> <!-- Här skrivs dygnets billigaste timme ut -->
+        </div>
+
+      </section>
     </main>
+    <footer>
+      <!-- Kontaktuppgifter kanske?-->
+    </footer>
 
     <!-- TODO
     - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
