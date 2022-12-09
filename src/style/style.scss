@@ -154,6 +154,19 @@ header {
 
 }
 
+.contact {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $contrastColorFirst;
+  width: 100%;
+  margin: 0;
+  padding: 10 0;
+}
 /*
 :root {
   // TODO: Går bra att radera kod även här!
