@@ -5,7 +5,7 @@ var electricityPrice;
 var electricityAreaChoice;
 var electricityArea;
 function getElectricityAreaPrices(area) {
-    fetch('adress till API'.concat(area))
+    fetch('https://entsoe-cache.plsh.se/SE3.json')
         .then(function (data) { return data.json(); })
         .then(function (json) {
         console.table(json);

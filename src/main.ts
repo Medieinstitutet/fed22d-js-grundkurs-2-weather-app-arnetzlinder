@@ -6,7 +6,7 @@ let electricityAreaChoice: string;
 let electricityArea: Element | null;
 
 function getElectricityAreaPrices(area: string) {
-  fetch('adress till API'.concat(area))
+  fetch('https://entsoe-cache.plsh.se/SE3.json')
     .then((data) => data.json())
     .then((json) => {
       console.table(json);
