@@ -1,39 +1,54 @@
-import './style/style.scss';
+// import './style/style.scss';
+// export {};
+/* eslint linebreak-style: ["error", "windows"] */
+let electricityPrice;
+let electricityAreaChoice: string;
+let electricityArea: Element | null;
 
-// All kod härifrån och ner är bara ett exempel för att komma igång
-
-// I denna utils-fil har vi lagrat funktioner som ofta används, t.ex. en "blanda array"-funktion
-import { shuffle } from './utils';
-
-// I denna fil har vi lagrat vår "data", i detta exempel en ofullständig kortlek
-import exampleCardDeck from './exampleArray';
-
-// Blanda kortleken
-const myShuffledCardDeck = shuffle(exampleCardDeck);
-
-/**
- * Vänder upp/ner på det klickade kortet genom att toggla en CSS-klass.
- * @param this - Det HTML-element som har klickats på
- * @return {void}
- */
-function flipCard(this: HTMLElement): void {
-  if (this !== undefined) {
-    this.classList.toggle('visible');
-  }
+function getElectricityAreaPrices(area: string) {
+  fetch('adress till API'.concat(area))
+    .then((data) => data.json())
+    .then((json) => {
+      console.table(json);
+    })
+    .catch((err) => {
+      console.error('Error fetching electricity prices:', err);
+    });
 }
 
-// Printa kortleken
-let cardString = '';
-myShuffledCardDeck.forEach((card) => {
-  cardString += `
-    <button class="card">
-      <span class="front">♠</span>
-      <span class="back">${card}</span>
-    </button>`;
-});
+function chooseElectricityArea(e: Event) {
+  /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv */
+  const element = e.currentTarget as HTMLSelectElement;
+  switch (element.value) {
+    case 'electricityArea1':
+      electricityPrice = getElectricityAreaPrices('SE1');
+      break;
+    case 'electricityArea2':
+      electricityPrice = getElectricityAreaPrices('SE2');
+      break;
+    case 'electricityArea3':
+      electricityPrice = getElectricityAreaPrices('SE3');
+      break;
+    case 'electricityArea4':
+      electricityPrice = getElectricityAreaPrices('SE4');
+      break;
+    default:
+  }
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = cardString;
+  console.log(chooseElectricityArea);
+}
 
-document.querySelectorAll('.card').forEach((card) => {
-  card.addEventListener('click', flipCard);
-});
+function initFields() {
+// Function to declare fields
+  electricityArea = document.querySelector('.chooseElectricityArea') as Element;
+  electricityArea.addEventListener('change', chooseElectricityArea);
+}
+
+initFields();
+
+/*
+if(elpriset är högre än medel) {
+  // Time to freeze!
+  let e = document.querySelector(".electricityPrice::before");
+  e.style.backgroundImage = "url(../../public/photos/frost.jpg)";
+} */
