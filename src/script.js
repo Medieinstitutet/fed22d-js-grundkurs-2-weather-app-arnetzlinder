@@ -7,7 +7,6 @@ Funktioner
 - Räkna ut medelpris/dygn aktuellt dygn och säga om priset är högt/lågt i förhållande till det
 - Ha ett tema för högt pris och ett för lågt pris
 - Visar aktuellt elpris i ett visst område
-- Ev annat tema eller något annat sätt uppmärksamma om det är ovanligt stora fluktationer i elpriset
 - Notiser el dyl när du borde ladda bilen/torktumla/något annat som drar mycket el
 - En ruta som berättar vad det kostar att ladda bilen/torktumla/något annat som drar mycket el just nu och hur mycket du sparar om du väntar 
     till dygnets billigaste timme
