@@ -21,44 +21,49 @@
       </div>
     </header>
     <main>
-      <div class="electricityArea">
-        <form>
-          <label for="electricityArea"></label>
-          <select name="electricityArea" class="chooseElectricityArea">
-              <option value="gpsValue" tabindex="0" disabled selected>
-                  Välj elprisområde
-              </option>
-              <option value="electricityArea1" tabindex="0">Elprisområde 1</option>
-              <option value="electricityArea2" tabindex="0">Elprisområde 2</option>
-              <option value="electricityArea3" tabindex="0">Elprisområde 3</option>
-              <option value="electricityArea4" tabindex="0">Elprisområde 4</option>
-          </select> 
-          </form>
+      <section class="electricityAreaContainer">
+        <div class="electricityAreaBackground"></div>
+        <div class="electricityArea">
+          <form>
+            <label for="electricityArea"></label>
+            <select name="electricityArea" class="chooseElectricityArea">
+                <option value="gpsValue" tabindex="0" disabled selected>
+                    Välj elprisområde
+                </option>
+                <option value="electricityArea1" tabindex="0">Elprisområde 1</option>
+                <option value="electricityArea2" tabindex="0">Elprisområde 2</option>
+                <option value="electricityArea3" tabindex="0">Elprisområde 3</option>
+                <option value="electricityArea4" tabindex="0">Elprisområde 4</option>
+            </select> 
+            </form>
+        </div>
+      </section>
+      <div class="electricityPriceContainer">
+        <div class="electricityPriceBackground"></div>
+        <section class="electricityPrice"> 
+          <h2>Elpris just nu</h2>
+        </section>
+        <section class="electricitySaver">
+          <div class="electricitySaverForm">
+          <form>
+            <label for="electricitySaver"></label>
+            <select name="electricitySaver" class="chooseSpendingMethod">
+                <option value="activity" tabindex="0" disabled selected>
+                    Välj vad du vill göra
+                </option>
+                <option value="shower" tabindex="0">Duscha i tio minuter</option>
+                <option value="dryer" tabindex="0">Torktumla en tvätt</option>
+                <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
+            </select> 
+            </form>
+          </div>
+          <div class="electricitySaverInfo">
+            <p>Om du gör det nu:</p> <!--funktion som multiplicerar elpriset nu med förbrukningen vid vald aktivitet-->
+            <p> Om du gör det om en timme:</p> <!--funktion som multiplicerar elpriset om en timme med förbrukningen vid vald aktivitet-->
+            <p> Om du gör det klockan tt:mm:</p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
+          </div>
+        </section>
       </div>
-      <section class="electricityPrice"> 
-        <h2>Elpris just nu</h2>
-      </section>
-      <section class="electricitySaver">
-        <div class="electricitySaverForm">
-        <form>
-          <label for="electricitySaver"></label>
-          <select name="electricitySaver" class="chooseSpendingMethod">
-              <option value="activity" tabindex="0" disabled selected>
-                  Välj vad du vill göra
-              </option>
-              <option value="shower" tabindex="0">Duscha i tio minuter</option>
-              <option value="dryer" tabindex="0">Torktumla en tvätt</option>
-              <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
-          </select> 
-          </form>
-        </div>
-        <div class="electricitySaverInfo">
-          <p>Om du gör det nu:</p> <!--funktion som multiplicerar elpriset nu med förbrukningen vid vald aktivitet-->
-          <p> Om du gör det om en timme:</p> <!--funktion som multiplicerar elpriset om en timme med förbrukningen vid vald aktivitet-->
-          <p> Om du gör det klockan tt:mm:</p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
-        </div>
-
-      </section>
     </main>
     <footer>
       <!-- Kontaktuppgifter kanske?-->
