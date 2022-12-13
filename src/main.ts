@@ -1,14 +1,18 @@
 /* eslint linebreak-style: ["error", "windows"] */
-let electricityPrice: string;
-let electricityAreaChoice: string;
+let electricityPrice: Element = document.querySelector('.electricityPrice') as Element;
+// let electricityAreaChoice: string;
 let electricityArea: Element | null;
-const electricityPrices: string | number [] = [];
+let electricityPrices: string[] = [];
 
 function getElectricityAreaPrices(area: string) {
+  // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');
+  // electricityPrices = response.json() as string[];
+
   fetch('https://entsoe-cache.plsh.se/SE3.json')
     .then((data) => data.json())
     .then((json) => {
       console.table(json);
+      electricityPrices = json as string[];
     })
     .catch((err) => {
       console.error('Error fetching electricity prices:', err);
@@ -16,12 +20,12 @@ function getElectricityAreaPrices(area: string) {
 }
 
 // Kolla upp hur du gör innerHTML i typescript
-/* function displayElectricityPrice () {
+function displayElectricityPrice() {
   electricityPrice.innerHTML = '';
   electricityPrice.innerHTML += `
-  <h2> Elpris just nu: ${electricityPrices[i].price}
+  <h2> Elpris just nu: ${electricityPrices[0].2}</h2>
   `;
-} */
+}
 
 function chooseElectricityArea(e: Event) {
   /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv */
