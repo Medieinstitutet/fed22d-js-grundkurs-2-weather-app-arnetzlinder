@@ -1,9 +1,8 @@
-// import './style/style.scss';
-// export {};
 /* eslint linebreak-style: ["error", "windows"] */
 var electricityPrice;
 var electricityAreaChoice;
 var electricityArea;
+var electricityPrices = [];
 function getElectricityAreaPrices(area) {
     fetch('https://entsoe-cache.plsh.se/SE3.json')
         .then(function (data) { return data.json(); })
@@ -13,6 +12,13 @@ function getElectricityAreaPrices(area) {
         console.error('Error fetching electricity prices:', err);
     });
 }
+// Kolla upp hur du gör innerHTML i typescript
+/* function displayElectricityPrice () {
+  electricityPrice.innerHTML = '';
+  electricityPrice.innerHTML += `
+  <h2> Elpris just nu: ${electricityPrices[i].price}
+  `;
+} */
 function chooseElectricityArea(e) {
     /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv */
     var element = e.currentTarget;
@@ -30,6 +36,7 @@ function chooseElectricityArea(e) {
             electricityPrice = getElectricityAreaPrices('SE4');
             break;
         default:
+        // displayElectricityPrice();
     }
     console.log(chooseElectricityArea);
 }
@@ -42,6 +49,6 @@ initFields();
 /*
 if(elpriset är högre än medel) {
   // Time to freeze!
-  let e = document.querySelector(".electricityPrice::before");
+  let e = document.querySelector(".electricityPriceBackground");
   e.style.backgroundImage = "url(../../public/photos/frost.jpg)";
 } */
