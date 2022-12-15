@@ -3,7 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ES2015", "DOM", "ES2015"],
     "moduleResolution": "Node",
     "strict": true,
     "resolveJsonModule": true,
