@@ -1,11 +1,15 @@
 /* eslint linebreak-style: ["error", "windows"] */
 const electricityPrice: HTMLElement = document.querySelector('.electricityPrice') as HTMLElement;
+const nowPrice: HTMLElement = document.querySelector('.now') as HTMLElement;
+const oneHourPrice: HTMLElement = document.querySelector('.oneHour') as HTMLElement;
+const cheapHourPrice: HTMLElement = document.querySelector('.cheapHour') as HTMLElement;
 // let electricityAreaChoice: string;
 let electricityArea: Element | null;
 let electricitySaver: Element | null;
 let electricityPrices: string[] = [];
 const date = new Date();
 let time: number;
+let sum: number;
 
 function displayElectricityPrice() {
   electricityPrice.innerHTML = '';
@@ -13,6 +17,12 @@ function displayElectricityPrice() {
   <h2> Elpris just nu: ${electricityPrices[2][date.getHours()]} öre/kWh</h2>
   `;
 }
+
+/* function displayActivityCost() {
+  nowPrice.innerHTML = '';
+  nowPrice.innerHTML += `
+  `;
+} */
 
 function getElectricityAreaPrices(area: string) {
   // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');
@@ -32,8 +42,20 @@ function getElectricityAreaPrices(area: string) {
     });
 }
 
-function getActivityCost() {
+function getActivityCost(activity: string) {
   // formel för att omvandla elpriset till motsvarande kostnad
+  const activityCost = Number('electricityPrices[2][date.getHours()]');
+  // const activityCostHour =
+  // const aktivityCostCheapHour =
+  if (activity === 'shower') {
+    sum = activityCost * 5;
+  }
+  if (activity === 'dryer') {
+    sum = activityCost * 5;
+  }
+  if (activity === 'chargeCar') {
+    sum = activityCost * 10;
+  }
 }
 
 function chooseElectricityArea(e: Event) {
@@ -62,13 +84,13 @@ function chooseActivity(e: Event) {
   const element = e.currentTarget as HTMLSelectElement;
   switch (element.value) {
     case 'shower':
-      getActivityCost('#');
+      getActivityCost();
       break;
     case 'dryer':
-      getActivityCost('#');
+      getActivityCost();
       break;
     case 'chargeCar':
-      getActivityCost('#');
+      getActivityCost();
       break;
     default:
   }
@@ -80,7 +102,7 @@ function initFields() {
   electricityArea = document.querySelector('.chooseElectricityArea') as Element;
   electricityArea.addEventListener('change', chooseElectricityArea);
   electricitySaver = document.querySelector('.chooseSpendingMethod') as Element;
-  electricitySaver.addEventListener('change', getActivityCost);
+  electricitySaver.addEventListener('change', chooseActivity);
 }
 
 initFields();
