@@ -2,6 +2,7 @@
 const electricityPrice: HTMLElement = document.querySelector('.electricityPrice') as HTMLElement;
 // let electricityAreaChoice: string;
 let electricityArea: Element | null;
+let electricitySaver: Element | null;
 let electricityPrices: string[] = [];
 const date = new Date();
 let time: number;
@@ -78,6 +79,8 @@ function initFields() {
 // Function to declare fields
   electricityArea = document.querySelector('.chooseElectricityArea') as Element;
   electricityArea.addEventListener('change', chooseElectricityArea);
+  electricitySaver = document.querySelector('.chooseSpendingMethod') as Element;
+  electricitySaver.addEventListener('change', getActivityCost);
 }
 
 initFields();

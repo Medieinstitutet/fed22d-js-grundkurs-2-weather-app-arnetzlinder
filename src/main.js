@@ -2,6 +2,7 @@
 var electricityPrice = document.querySelector('.electricityPrice');
 // let electricityAreaChoice: string;
 var electricityArea;
+var electricitySaver;
 var electricityPrices = [];
 var date = new Date();
 var time;
@@ -68,6 +69,8 @@ function initFields() {
     // Function to declare fields
     electricityArea = document.querySelector('.chooseElectricityArea');
     electricityArea.addEventListener('change', chooseElectricityArea);
+    electricitySaver = document.querySelector('.chooseSpendingMethod');
+    electricitySaver.addEventListener('change', getActivityCost);
 }
 initFields();
 /*
