@@ -1,8 +1,17 @@
 /* eslint linebreak-style: ["error", "windows"] */
-let electricityPrice: Element = document.querySelector('.electricityPrice') as Element;
+const electricityPrice: HTMLElement = document.querySelector('.electricityPrice') as HTMLElement;
 // let electricityAreaChoice: string;
 let electricityArea: Element | null;
 let electricityPrices: string[] = [];
+const date = new Date();
+let time: number;
+
+function displayElectricityPrice() {
+  electricityPrice.innerHTML = '';
+  electricityPrice.innerHTML += `
+  <h2> Elpris just nu: ${electricityPrices[2][date.getHours()]} öre/kWh</h2>
+  `;
+}
 
 function getElectricityAreaPrices(area: string) {
   // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');
@@ -13,18 +22,13 @@ function getElectricityAreaPrices(area: string) {
     .then((json) => {
       console.table(json);
       electricityPrices = json as string[];
+      // return electricityPrices[0][20];
+      console.log(electricityPrices[0][9]);
+      displayElectricityPrice();
     })
     .catch((err) => {
       console.error('Error fetching electricity prices:', err);
     });
-}
-
-// Kolla upp hur du gör innerHTML i typescript
-function displayElectricityPrice() {
-  electricityPrice.innerHTML = '';
-  electricityPrice.innerHTML += `
-  <h2> Elpris just nu: ${electricityPrices[0].2}</h2>
-  `;
 }
 
 function chooseElectricityArea(e: Event) {
@@ -32,21 +36,19 @@ function chooseElectricityArea(e: Event) {
   const element = e.currentTarget as HTMLSelectElement;
   switch (element.value) {
     case 'electricityArea1':
-      electricityPrice = getElectricityAreaPrices('SE1');
+      getElectricityAreaPrices('SE1');
       break;
     case 'electricityArea2':
-      electricityPrice = getElectricityAreaPrices('SE2');
+      getElectricityAreaPrices('SE2');
       break;
     case 'electricityArea3':
-      electricityPrice = getElectricityAreaPrices('SE3');
+      getElectricityAreaPrices('SE3');
       break;
     case 'electricityArea4':
-      electricityPrice = getElectricityAreaPrices('SE4');
+      getElectricityAreaPrices('SE4');
       break;
     default:
-     // displayElectricityPrice();
   }
-
   console.log(chooseElectricityArea);
 }
 
