@@ -31,6 +31,10 @@ function getElectricityAreaPrices(area: string) {
     });
 }
 
+function getActivityCost() {
+  // formel för att omvandla elpriset till motsvarande kostnad
+}
+
 function chooseElectricityArea(e: Event) {
   /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv */
   const element = e.currentTarget as HTMLSelectElement;
@@ -50,6 +54,24 @@ function chooseElectricityArea(e: Event) {
     default:
   }
   console.log(chooseElectricityArea);
+}
+
+function chooseActivity(e: Event) {
+  // Här lägger jag in att kunden kan vlja vilken aktivitet hen vill utföra
+  const element = e.currentTarget as HTMLSelectElement;
+  switch (element.value) {
+    case 'shower':
+      getActivityCost('#');
+      break;
+    case 'dryer':
+      getActivityCost('#');
+      break;
+    case 'chargeCar':
+      getActivityCost('#');
+      break;
+    default:
+  }
+  console.log(chooseActivity);
 }
 
 function initFields() {
