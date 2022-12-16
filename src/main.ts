@@ -43,19 +43,18 @@ function getElectricityAreaPrices(area: string) {
 }
 
 function getActivityCost(activity: string) {
-  // formel för att omvandla elpriset till motsvarande kostnad
+  // formel för att omvandla elpriset till motsvarande kostnad för respektive aktivitet
   const activityCost = Number('electricityPrices[2][date.getHours()]');
-  // const activityCostHour =
-  // const aktivityCostCheapHour =
   if (activity === 'shower') {
-    sum = activityCost * 5;
+    sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
   }
   if (activity === 'dryer') {
-    sum = activityCost * 5;
+    sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
   }
   if (activity === 'chargeCar') {
-    sum = activityCost * 10;
+    sum = activityCost * 0.1; // kostnaden i kronor för aktiviteten
   }
+  console.log(getActivityCost);
 }
 
 function chooseElectricityArea(e: Event) {
