@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/88669a913c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./src/style/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +25,6 @@
         <div class="electricityAreaBackground"></div>
         <div class="electricityArea">
           <form>
-            <label for="electricityArea"></label>
             <select name="electricityArea" class="chooseElectricityArea">
                 <option value="gpsValue" tabindex="0" disabled selected>
                     Välj elprisområde
@@ -44,17 +44,16 @@
         </section>
         <section class="electricitySaver">
           <div class="electricitySaverForm">
-          <form>
-            <label for="electricitySaver"></label>
-            <select name="electricitySaver" class="chooseSpendingMethod">
-                <option value="activity" tabindex="0" disabled selected>
-                    Välj vad du vill göra
-                </option>
-                <option value="shower" tabindex="0">Duscha i tio minuter</option>
-                <option value="dryer" tabindex="0">Torktumla en tvätt</option>
-                <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
-            </select> 
-          </form>
+            <form>
+              <select name="electricitySaver" class="chooseSpendingMethod">
+                  <option value="activity" tabindex="0" disabled selected>
+                      Välj vad du vill göra
+                  </option>
+                  <option value="shower" tabindex="0">Duscha i tio minuter</option>
+                  <option value="dryer" tabindex="0">Torktumla en tvätt</option>
+                  <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
+              </select> 
+            </form>
           </div>
           <div class="electricitySaverInfo">
             <p>Om du gör det nu:<span class="now"></span></p> <!--funktion som multiplicerar elpriset nu med förbrukningen vid vald aktivitet-->

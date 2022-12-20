@@ -10,15 +10,17 @@ var electricityPrices = [];
 var date = new Date();
 var time;
 var sum;
+var sum1;
 function displayElectricityPrice() {
     electricityPrice.innerHTML = '';
     electricityPrice.innerHTML += "\n  <h2> Elpris just nu: ".concat(electricityPrices[2][date.getHours()], " \u00F6re/kWh</h2>\n  ");
 }
-/* function displayActivityCost() {
-  nowPrice.innerHTML = '';
-  nowPrice.innerHTML += `
-  `;
-} */
+function displayActivityCost() {
+    nowPrice.innerHTML = '';
+    nowPrice.innerHTML += "\n  ".concat(sum, " SEK\n  ");
+    oneHourPrice.innerHTML = '';
+    oneHourPrice.innerHTML += "\n  ".concat(sum1, " SEK\n  ");
+}
 function getElectricityAreaPrices(area) {
     // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');
     // electricityPrices = response.json() as string[];
@@ -36,17 +38,24 @@ function getElectricityAreaPrices(area) {
 }
 function getActivityCost(activity) {
     // formel för att omvandla elpriset till motsvarande kostnad för respektive aktivitet
-    var activityCost = Number('electricityPrices[2][date.getHours()]');
+    var activityCost = Number(electricityPrices[2][date.getHours()]);
+    var activityCostOneHour = Number(electricityPrices[2][date.getHours() + 1]);
+    console.log('activityCost: '.concat(activityCost.toString()));
     if (activity === 'shower') {
         sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
+        sum1 = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
     }
     if (activity === 'dryer') {
         sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
+        sum1 = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
     }
     if (activity === 'chargeCar') {
         sum = activityCost * 0.1; // kostnaden i kronor för aktiviteten
+        sum1 = activityCostOneHour * 0.1; // kostnaden i kronor för aktiviteten
     }
-    console.log(getActivityCost);
+    displayActivityCost();
+    console.log(sum);
+    console.log(activity);
 }
 function chooseElectricityArea(e) {
     /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv */
@@ -73,13 +82,13 @@ function chooseActivity(e) {
     var element = e.currentTarget;
     switch (element.value) {
         case 'shower':
-            getActivityCost();
+            getActivityCost('shower');
             break;
         case 'dryer':
-            getActivityCost();
+            getActivityCost('dryer');
             break;
         case 'chargeCar':
-            getActivityCost();
+            getActivityCost('chargeCar');
             break;
         default:
     }
@@ -99,3 +108,25 @@ if(elpriset är högre än medel) {
   let e = document.querySelector(".electricityPriceBackground");
   e.style.backgroundImage = "url(../../public/photos/frost.jpg)";
 } */
+/*
+
+Plan för elprisappen
+
+Funktioner
+- Hämta aktuella elpriser från externt API
+- Räkna ut medelpris/dygn aktuellt dygn och säga om priset är högt/lågt i förhållande till det
+- Ha ett tema för högt pris och ett för lågt pris
+- Visar aktuellt elpris i ett visst område - klart
+- En ruta som berättar vad det kostar att ladda bilen/torktumla/något annat som drar mycket el just nu
+  och hur mycket du sparar om du väntar till dygnets billigaste timme - 2/3 klart
+- En notis som meddelar användaren när det är möjligt att duscha för en viss summa exempelvis
+
+    TODO
+    x Göra en wireframe
+    x Göra bas-HTML/CSS
+    x Leta reda på bilder för olika teman
+    x Fundera på vilka funktioner som ska finnas i JS
+    * Ta reda på var API för elpriser finns
+    * Skriv funktion för att beräkna medelelpris för ett dygn
+
+*/
