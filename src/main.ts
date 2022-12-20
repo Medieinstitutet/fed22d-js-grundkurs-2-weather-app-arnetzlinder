@@ -9,8 +9,8 @@ let electricitySaver: Element | null;
 let electricityPrices: string[] = [];
 const date = new Date();
 let time: number;
-let sum: number;
-let sum1: number;
+let sumNow: number;
+let sumOneHour: number;
 
 function displayElectricityPrice() {
   electricityPrice.innerHTML = '';
@@ -20,13 +20,15 @@ function displayElectricityPrice() {
 }
 
 function displayActivityCost() {
+  const sumToPrint = sumNow.toPrecision(4);
+  const sumToPrintOneHour = sumOneHour.toPrecision(4);
   nowPrice.innerHTML = '';
   nowPrice.innerHTML += `
-  ${sum} SEK
+  ${sumToPrint} SEK
   `;
   oneHourPrice.innerHTML = '';
   oneHourPrice.innerHTML += `
-  ${sum1} SEK
+  ${sumToPrintOneHour} SEK
   `;
 }
 
@@ -54,19 +56,19 @@ function getActivityCost(activity: string) {
   const activityCostOneHour = Number(electricityPrices[2][date.getHours() + 1]);
   console.log('activityCost: '.concat(activityCost.toString()));
   if (activity === 'shower') {
-    sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
-    sum1 = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
+    sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
+    sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
   }
   if (activity === 'dryer') {
-    sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
-    sum1 = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
+    sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
+    sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
   }
   if (activity === 'chargeCar') {
-    sum = activityCost * 0.1; // kostnaden i kronor för aktiviteten
-    sum1 = activityCostOneHour * 0.1; // kostnaden i kronor för aktiviteten
+    sumNow = activityCost * 0.1; // kostnaden i kronor för aktiviteten
+    sumOneHour = activityCostOneHour * 0.1; // kostnaden i kronor för aktiviteten
   }
   displayActivityCost();
-  console.log(sum);
+  console.log(sumNow);
   console.log(activity);
 }
 

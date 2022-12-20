@@ -9,17 +9,19 @@ var electricitySaver;
 var electricityPrices = [];
 var date = new Date();
 var time;
-var sum;
-var sum1;
+var sumNow;
+var sumOneHour;
 function displayElectricityPrice() {
     electricityPrice.innerHTML = '';
     electricityPrice.innerHTML += "\n  <h2> Elpris just nu: ".concat(electricityPrices[2][date.getHours()], " \u00F6re/kWh</h2>\n  ");
 }
 function displayActivityCost() {
+    var sumToPrint = sumNow.toPrecision(4);
+    var sumToPrintOneHour = sumOneHour.toPrecision(4);
     nowPrice.innerHTML = '';
-    nowPrice.innerHTML += "\n  ".concat(sum, " SEK\n  ");
+    nowPrice.innerHTML += "\n  ".concat(sumToPrint, " SEK\n  ");
     oneHourPrice.innerHTML = '';
-    oneHourPrice.innerHTML += "\n  ".concat(sum1, " SEK\n  ");
+    oneHourPrice.innerHTML += "\n  ".concat(sumToPrintOneHour, " SEK\n  ");
 }
 function getElectricityAreaPrices(area) {
     // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');
@@ -42,19 +44,19 @@ function getActivityCost(activity) {
     var activityCostOneHour = Number(electricityPrices[2][date.getHours() + 1]);
     console.log('activityCost: '.concat(activityCost.toString()));
     if (activity === 'shower') {
-        sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
-        sum1 = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
+        sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
+        sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
     }
     if (activity === 'dryer') {
-        sum = activityCost * 0.05; // kostnaden i kronor för aktiviteten
-        sum1 = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
+        sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
+        sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
     }
     if (activity === 'chargeCar') {
-        sum = activityCost * 0.1; // kostnaden i kronor för aktiviteten
-        sum1 = activityCostOneHour * 0.1; // kostnaden i kronor för aktiviteten
+        sumNow = activityCost * 0.1; // kostnaden i kronor för aktiviteten
+        sumOneHour = activityCostOneHour * 0.1; // kostnaden i kronor för aktiviteten
     }
     displayActivityCost();
-    console.log(sum);
+    console.log(sumNow);
     console.log(activity);
 }
 function chooseElectricityArea(e) {
