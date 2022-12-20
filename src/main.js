@@ -2,26 +2,48 @@
 var electricityPrice = document.querySelector('.electricityPrice');
 var nowPrice = document.querySelector('.now');
 var oneHourPrice = document.querySelector('.oneHour');
-var cheapHourPrice = document.querySelector('.cheapHour');
+var cheapHourTime = document.querySelector('.cheapHour');
+var cheapHourPrice = document.querySelector('.cheapPrice');
 // let electricityAreaChoice: string;
 var electricityArea;
 var electricitySaver;
 var electricityPrices = [];
 var date = new Date();
-var time;
+var cheapHour;
+var cheapPrice;
 var sumNow;
 var sumOneHour;
+var averageElectricityPrice = 0;
 function displayElectricityPrice() {
     electricityPrice.innerHTML = '';
     electricityPrice.innerHTML += "\n  <h2> Elpris just nu: ".concat(electricityPrices[2][date.getHours()], " \u00F6re/kWh</h2>\n  ");
+    // Här räknas det billigaste priset ut samt vilken timme det är
+    for (var i = 0; i < 24; i++) {
+        if (Number(electricityPrices[2][i]) < cheapPrice || (typeof cheapPrice === 'undefined')) {
+            cheapPrice = Number(electricityPrices[2][i]);
+            cheapHour = i;
+        }
+        averageElectricityPrice += Number(electricityPrices[2][i]);
+    }
+    averageElectricityPrice /= 24;
+    if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
+        var e = document.querySelector('.electricityPriceBackground');
+        e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
+    }
+    console.log('detta är medelpriset' + averageElectricityPrice);
 }
 function displayActivityCost() {
     var sumToPrint = sumNow.toPrecision(4);
     var sumToPrintOneHour = sumOneHour.toPrecision(4);
+    var cheapPriceKronor = Number(cheapPrice * 0.01).toPrecision(4);
     nowPrice.innerHTML = '';
     nowPrice.innerHTML += "\n  ".concat(sumToPrint, " SEK\n  ");
     oneHourPrice.innerHTML = '';
     oneHourPrice.innerHTML += "\n  ".concat(sumToPrintOneHour, " SEK\n  ");
+    cheapHourTime.innerHTML = '';
+    cheapHourTime.innerHTML += "\n  ".concat(cheapHour, " \u00E4r priset\n  ");
+    cheapHourPrice.innerHTML = '';
+    cheapHourPrice.innerHTML += "\n  ".concat(cheapPriceKronor, " SEK\n  ");
 }
 function getElectricityAreaPrices(area) {
     // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');

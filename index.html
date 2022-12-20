@@ -26,13 +26,13 @@
         <div class="electricityArea">
           <form>
             <select name="electricityArea" class="chooseElectricityArea">
-                <option value="gpsValue" tabindex="0" disabled selected>
+                <option value="gpsValue" disabled selected>
                     Välj elprisområde
                 </option>
-                <option value="electricityArea1" tabindex="0">Elprisområde 1</option>
-                <option value="electricityArea2" tabindex="0">Elprisområde 2</option>
-                <option value="electricityArea3" tabindex="0">Elprisområde 3</option>
-                <option value="electricityArea4" tabindex="0">Elprisområde 4</option>
+                <option value="electricityArea1">Elprisområde 1</option>
+                <option value="electricityArea2">Elprisområde 2</option>
+                <option value="electricityArea3">Elprisområde 3</option>
+                <option value="electricityArea4">Elprisområde 4</option>
             </select> 
             </form>
         </div>
@@ -46,19 +46,19 @@
           <div class="electricitySaverForm">
             <form>
               <select name="electricitySaver" class="chooseSpendingMethod">
-                  <option value="activity" tabindex="0" disabled selected>
+                  <option value="activity" disabled selected>
                       Välj vad du vill göra
                   </option>
-                  <option value="shower" tabindex="0">Duscha i tio minuter</option>
-                  <option value="dryer" tabindex="0">Torktumla en tvätt</option>
-                  <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
+                  <option value="shower">Duscha i tio minuter</option>
+                  <option value="dryer">Torktumla en tvätt</option>
+                  <option value="chargeCar">Ladda bilen motsvarande 50 km körning</option>
               </select> 
             </form>
           </div>
           <div class="electricitySaverInfo">
             <p>Om du gör det nu:<span class="now"></span></p> <!--funktion som multiplicerar elpriset nu med förbrukningen vid vald aktivitet-->
             <p> Om du gör det om en timme:<span class="oneHour"></span></p> <!--funktion som multiplicerar elpriset om en timme med förbrukningen vid vald aktivitet-->
-            <p> Om du gör det klockan tt:mm:<span class="cheapHour"></span></p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
+            <p> Om du gör det klockan <span class="cheapHour"></span><span class="cheapPrice"></span></p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
           </div>
         </section>
       </div>

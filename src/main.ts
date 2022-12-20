@@ -2,26 +2,44 @@
 const electricityPrice: HTMLElement = document.querySelector('.electricityPrice') as HTMLElement;
 const nowPrice: HTMLElement = document.querySelector('.now') as HTMLElement;
 const oneHourPrice: HTMLElement = document.querySelector('.oneHour') as HTMLElement;
-const cheapHourPrice: HTMLElement = document.querySelector('.cheapHour') as HTMLElement;
+const cheapHourTime: HTMLElement = document.querySelector('.cheapHour') as HTMLElement;
+const cheapHourPrice: HTMLElement = document.querySelector('.cheapPrice') as HTMLElement;
 // let electricityAreaChoice: string;
 let electricityArea: Element | null;
 let electricitySaver: Element | null;
 let electricityPrices: string[] = [];
 const date = new Date();
-let time: number;
+let cheapHour: number;
+let cheapPrice: number;
 let sumNow: number;
 let sumOneHour: number;
+let averageElectricityPrice = 0;
 
 function displayElectricityPrice() {
   electricityPrice.innerHTML = '';
   electricityPrice.innerHTML += `
   <h2> Elpris just nu: ${electricityPrices[2][date.getHours()]} öre/kWh</h2>
   `;
+  // Här räknas det billigaste priset ut samt vilken timme det är
+  for (let i = 0; i < 24; i++) {
+    if (Number(electricityPrices[2][i]) < cheapPrice || (typeof cheapPrice === 'undefined')) {
+      cheapPrice = Number(electricityPrices[2][i]);
+      cheapHour = i;
+    }
+    averageElectricityPrice += Number(electricityPrices[2][i]);
+  }
+  averageElectricityPrice /= 24;
+  if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
+    const e: HTMLElement = document.querySelector('.electricityPriceBackground') as HTMLElement;
+    e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
+  }
+  console.log('detta är medelpriset' + averageElectricityPrice);
 }
 
 function displayActivityCost() {
   const sumToPrint = sumNow.toPrecision(4);
   const sumToPrintOneHour = sumOneHour.toPrecision(4);
+  const cheapPriceKronor = Number(cheapPrice * 0.01).toPrecision(4);
   nowPrice.innerHTML = '';
   nowPrice.innerHTML += `
   ${sumToPrint} SEK
@@ -29,6 +47,14 @@ function displayActivityCost() {
   oneHourPrice.innerHTML = '';
   oneHourPrice.innerHTML += `
   ${sumToPrintOneHour} SEK
+  `;
+  cheapHourTime.innerHTML = '';
+  cheapHourTime.innerHTML += `
+  ${cheapHour} är priset
+  `;
+  cheapHourPrice.innerHTML = '';
+  cheapHourPrice.innerHTML += `
+  ${cheapPriceKronor} SEK
   `;
 }
 
