@@ -13,6 +13,7 @@ var cheapHour;
 var cheapPrice;
 var sumNow;
 var sumOneHour;
+var sumCheapHour;
 var averageElectricityPrice = 0;
 function displayElectricityPrice() {
     electricityPrice.innerHTML = '';
@@ -36,7 +37,7 @@ function displayElectricityPrice() {
 function displayActivityCost() {
     var sumToPrint = sumNow.toPrecision(4);
     var sumToPrintOneHour = sumOneHour.toPrecision(4);
-    var cheapPriceKronor = Number(cheapPrice * 0.01).toPrecision(4);
+    var sumToPrintCheapHour = sumCheapHour.toPrecision(4);
     nowPrice.innerHTML = '';
     nowPrice.innerHTML += "\n  ".concat(sumToPrint, " SEK\n  ");
     oneHourPrice.innerHTML = '';
@@ -44,12 +45,12 @@ function displayActivityCost() {
     cheapHourTime.innerHTML = '';
     cheapHourTime.innerHTML += "\n  ".concat(cheapHour, " \u00E4r priset\n  ");
     cheapHourPrice.innerHTML = '';
-    cheapHourPrice.innerHTML += "\n  ".concat(cheapPriceKronor, " SEK\n  ");
+    cheapHourPrice.innerHTML += "\n  ".concat(sumToPrintCheapHour, " SEK\n  ");
 }
 function getElectricityAreaPrices(area) {
     // const response = fetch('https://entsoe-cache.plsh.se/SE3.json');
     // electricityPrices = response.json() as string[];
-    fetch('https://entsoe-cache.plsh.se/SE3.json')
+    fetch('https://entsoe-cache.plsh.se/'.concat(area, '.json'), { cache: 'no-cache' })
         .then(function (data) { return data.json(); })
         .then(function (json) {
         console.table(json);
@@ -65,18 +66,22 @@ function getActivityCost(activity) {
     // formel för att omvandla elpriset till motsvarande kostnad för respektive aktivitet
     var activityCost = Number(electricityPrices[2][date.getHours()]);
     var activityCostOneHour = Number(electricityPrices[2][date.getHours() + 1]);
+    var activityCostCheapHour = Number(electricityPrices[2][cheapHour]);
     console.log('activityCost: '.concat(activityCost.toString()));
     if (activity === 'shower') {
         sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
         sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
+        sumCheapHour = activityCostCheapHour * 0.05; // kostnaden för aktiviteten i kronor
     }
     if (activity === 'dryer') {
         sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
         sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
+        sumCheapHour = activityCostCheapHour * 0.05; // kostnaden för aktiviteten i kronor
     }
     if (activity === 'chargeCar') {
         sumNow = activityCost * 0.1; // kostnaden i kronor för aktiviteten
         sumOneHour = activityCostOneHour * 0.1; // kostnaden i kronor för aktiviteten
+        sumCheapHour = activityCostCheapHour * 0.1; // kostnaden för aktiviteten i kronor
     }
     displayActivityCost();
     console.log(sumNow);
