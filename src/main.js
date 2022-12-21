@@ -29,8 +29,8 @@ function displayElectricityPrice() {
     if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
         var e = document.querySelector('.electricityPriceBackground');
         e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
+        e.style.opacity = '0.7';
     }
-    console.log('detta är medelpriset' + averageElectricityPrice);
 }
 function displayActivityCost() {
     var sumToPrint = sumNow.toPrecision(4);
@@ -127,12 +127,6 @@ function initFields() {
 }
 initFields();
 /*
-if(elpriset är högre än medel) {
-  // Time to freeze!
-  let e = document.querySelector(".electricityPriceBackground");
-  e.style.backgroundImage = "url(../../public/photos/frost.jpg)";
-} */
-/*
 
 Plan för elprisappen
 
@@ -151,6 +145,6 @@ Funktioner
     x Leta reda på bilder för olika teman
     x Fundera på vilka funktioner som ska finnas i JS
     * Ta reda på var API för elpriser finns
-    * Skriv funktion för att beräkna medelelpris för ett dygn
+    x Skriv funktion för att beräkna medelelpris för ett dygn
 
 */
