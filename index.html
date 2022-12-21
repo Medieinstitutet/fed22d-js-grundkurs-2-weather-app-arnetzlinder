@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="sv"> 
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/88669a913c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./src/style/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Susanne Arnetz Linder">
+    <meta name="keywords" content="Front End Developer, HTML, CSS, Javascript, Typescript, API, portfolio">
+    <meta property="og:title" content="Javascript project by Front End Developer Medieinstitutet 2022">
+    <meta property="og:image" content="public/photos/windTurbines.jpg">
+    <meta property="og:url" content="https://elpriskollen.arnetzlinder.com/">
+    <meta property="og:description" content="Front End-utvecklare som söker LIA hösten 2023. Kommer ut med kunskaper i React, Node.js, HTML, CSS, Javascript, testning mm. Nås på LinkedIn">
     <title>Elpriskollen</title>
   </head>
   <body>
     <header>
       <div class="header">
-        <img src="public/photos/windTurbine.gif">
+        <img src="public/photos/windTurbine.gif" alt="Snurrande vindkraftverk">
         <div class="appName"> 
           <h1>Energikollen</h1>
         </div>
       </div>
     </header>
     <main>
-      <section class="electricityAreaContainer">
+      <div class="electricityAreaContainer">
         <div class="electricityAreaBackground"></div>
         <div class="electricityArea">
           <form>
@@ -36,13 +40,13 @@
             </select> 
             </form>
         </div>
-      </section>
+      </div>
       <div class="electricityPriceContainer">
         <div class="electricityPriceBackground"></div>
         <section class="electricityPrice"> 
           <h2>Elpris just nu</h2>
         </section>
-        <section class="electricitySaver">
+        <div class="electricitySaver">
           <div class="electricitySaverForm">
             <form>
               <select name="electricitySaver" class="chooseSpendingMethod">
@@ -60,7 +64,7 @@
             <p> Om du gör det om en timme:<span class="oneHour"></span></p> <!--funktion som multiplicerar elpriset om en timme med förbrukningen vid vald aktivitet-->
             <p> Om du gör det klockan <span class="cheapHour"></span><span class="cheapPrice"></span></p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
           </div>
-        </section>
+        </div>
       </div>
     </main>
     <footer>
