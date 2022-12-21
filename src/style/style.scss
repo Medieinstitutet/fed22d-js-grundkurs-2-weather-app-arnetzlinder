@@ -182,3 +182,11 @@ header {
   margin: 0;
   padding: 10px 0;
 }
+
+/* stylelint-disable-next-line selector-class-pattern */
+body.highPrice {
+  h2{
+  /* stylelint-disable-next-line color-function-notation */
+  color: rgb(124, 14, 14);
+  }
+}

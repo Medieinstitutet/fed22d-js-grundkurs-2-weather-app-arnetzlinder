@@ -33,6 +33,7 @@ function displayElectricityPrice() {
     const e: HTMLElement = document.querySelector('.electricityPriceBackground') as HTMLElement;
     e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
     e.style.opacity = '0.7';
+    document.body.classList.add('highPrice');
   }
 }
 

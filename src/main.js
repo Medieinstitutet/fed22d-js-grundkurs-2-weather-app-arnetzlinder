@@ -30,6 +30,7 @@ function displayElectricityPrice() {
         var e = document.querySelector('.electricityPriceBackground');
         e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
         e.style.opacity = '0.7';
+        document.body.classList.add('highPrice');
     }
 }
 function displayActivityCost() {
