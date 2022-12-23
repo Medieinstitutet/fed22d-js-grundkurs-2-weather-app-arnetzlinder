@@ -42,6 +42,8 @@ function displayActivityCost() {
   const sumToPrint = sumNow.toPrecision(4);
   const sumToPrintOneHour = sumOneHour.toPrecision(4);
   const sumToPrintCheapHour = sumCheapHour.toPrecision(4);
+  const cheapHourString = cheapHour.toString();
+  const cheapHourPadded = cheapHourString.padStart(2, '0');
   nowPrice.innerHTML = '';
   nowPrice.innerHTML += `
   ${sumToPrint} SEK
@@ -52,7 +54,7 @@ function displayActivityCost() {
   `;
   cheapHourTime.innerHTML = '';
   cheapHourTime.innerHTML += `
-  ${cheapHour} är priset
+  ${cheapHourPadded}:00 är priset
   `;
   cheapHourPrice.innerHTML = '';
   cheapHourPrice.innerHTML += `
@@ -85,9 +87,9 @@ function getActivityCost(activity: string) {
   const activityCostCheapHour = Number(electricityPrices[2][cheapHour]);
   console.log('activityCost: '.concat(activityCost.toString()));
   if (activity === 'shower') {
-    sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
-    sumOneHour = activityCostOneHour * 0.05; // kostnaden i kronor för aktiviteten
-    sumCheapHour = activityCostCheapHour * 0.05; // kostnaden för aktiviteten i kronor
+    sumNow = activityCost * 0.044; // kostnaden i kronor för aktiviteten
+    sumOneHour = activityCostOneHour * 0.044; // kostnaden i kronor för aktiviteten
+    sumCheapHour = activityCostCheapHour * 0.044; // kostnaden för aktiviteten i kronor
   }
   if (activity === 'dryer') {
     sumNow = activityCost * 0.05; // kostnaden i kronor för aktiviteten
