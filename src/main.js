@@ -4,7 +4,6 @@ var nowPrice = document.querySelector('.now');
 var oneHourPrice = document.querySelector('.oneHour');
 var cheapHourTime = document.querySelector('.cheapHour');
 var cheapHourPrice = document.querySelector('.cheapPrice');
-// let electricityAreaChoice: string;
 var electricityArea;
 var electricitySaver;
 var electricityPrices = [];
@@ -139,20 +138,21 @@ initFields();
 Plan för elprisappen
 
 Funktioner
-- Hämta aktuella elpriser från externt API
-- Räkna ut medelpris/dygn aktuellt dygn och säga om priset är högt/lågt i förhållande till det
-- Ha ett tema för högt pris och ett för lågt pris
+- Hämta aktuella elpriser från externt API - klart
+- Räkna ut medelpris/dygn aktuellt dygn och säga om priset är högt/lågt i förhållande till det - klart
+- Ha ett tema för högt pris och ett för lågt pris - klart
 - Visar aktuellt elpris i ett visst område - klart
 - En ruta som berättar vad det kostar att ladda bilen/torktumla/något annat som drar mycket el just nu
-  och hur mycket du sparar om du väntar till dygnets billigaste timme - 2/3 klart
+  och hur mycket du sparar om du väntar till dygnets billigaste timme - klart
 - En notis som meddelar användaren när det är möjligt att duscha för en viss summa exempelvis
+- En inforuta om hur jag räknat
 
     TODO
     x Göra en wireframe
     x Göra bas-HTML/CSS
     x Leta reda på bilder för olika teman
     x Fundera på vilka funktioner som ska finnas i JS
-    * Ta reda på var API för elpriser finns
+    x Ta reda på var API för elpriser finns
     x Skriv funktion för att beräkna medelelpris för ett dygn
 
 */
