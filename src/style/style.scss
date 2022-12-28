@@ -24,10 +24,36 @@ header {
   img {
     height: 120px;
   }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  .infoButton {
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    color: $textColor;
+    background-color: $primaryColor;
+    font-family: Orbitron, sans-serif;
+  }
 }
 
 .header {
   display: flex;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.infoBox {
+  border: $textColor solid 2px;
+  border-radius: 10px;
+  background-color: $contrastColorSecond;
+  color: $textColor;
+  position: absolute;
+  top: 100px;
+  margin: 15px;
+  max-width: 600px;
+  padding: 15px;
+  visibility: hidden;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -161,6 +187,10 @@ header {
   background-color: $secondaryColor;
   color: $textColor;
   max-width: 350px;
+  /* stylelint-disable-next-line no-descending-specificity */
+  option {
+    padding: 5px;
+  }
 }
 /* stylelint-disable-next-line selector-class-pattern */
 .electricitySaverInfo {
@@ -168,6 +198,7 @@ header {
   font-size: 1rem;
   font-family: Orbitron, sans-serif;
   max-width: 350px;
+  padding: 5px;
 }
 
 .contact {
