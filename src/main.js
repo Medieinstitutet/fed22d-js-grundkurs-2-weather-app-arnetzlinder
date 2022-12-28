@@ -1,4 +1,6 @@
 /* eslint linebreak-style: ["error", "windows"] */
+var infoBtn = document.querySelector('.infoButton');
+var infoBox = document.querySelector('.infoBox');
 var electricityPrice = document.querySelector('.electricityPrice');
 var nowPrice = document.querySelector('.now');
 var oneHourPrice = document.querySelector('.oneHour');
@@ -14,6 +16,15 @@ var sumNow;
 var sumOneHour;
 var sumCheapHour;
 var averageElectricityPrice = 0;
+function appInformation() {
+    if (infoBox.style.visibility === 'hidden') {
+        infoBox.style.visibility = 'visible';
+    }
+    else {
+        infoBox.style.visibility = 'hidden';
+    }
+}
+infoBtn.addEventListener('click', appInformation);
 function displayElectricityPrice() {
     electricityPrice.innerHTML = '';
     electricityPrice.innerHTML += "\n  <h2> Elpris just nu: ".concat(electricityPrices[2][date.getHours()], " \u00F6re/kWh</h2>\n  ");

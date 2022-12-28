@@ -1,4 +1,6 @@
 /* eslint linebreak-style: ["error", "windows"] */
+const infoBtn: HTMLElement = document.querySelector('.infoButton') as HTMLElement;
+const infoBox: HTMLElement = document.querySelector('.infoBox') as HTMLElement;
 const electricityPrice: HTMLElement = document.querySelector('.electricityPrice') as HTMLElement;
 const nowPrice: HTMLElement = document.querySelector('.now') as HTMLElement;
 const oneHourPrice: HTMLElement = document.querySelector('.oneHour') as HTMLElement;
@@ -14,6 +16,15 @@ let sumNow: number;
 let sumOneHour: number;
 let sumCheapHour: number;
 let averageElectricityPrice = 0;
+
+function appInformation() {
+  if (infoBox.style.visibility === 'hidden') {
+    infoBox.style.visibility = 'visible';
+  } else {
+    infoBox.style.visibility = 'hidden';
+  }
+}
+infoBtn.addEventListener('click', appInformation);
 
 function displayElectricityPrice() {
   electricityPrice.innerHTML = '';
