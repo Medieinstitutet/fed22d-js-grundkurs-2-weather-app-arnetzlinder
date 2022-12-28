@@ -45,9 +45,9 @@ function displayElectricityPrice() {
     }
 }
 function displayActivityCost() {
-    var sumToPrint = sumNow.toPrecision(4);
-    var sumToPrintOneHour = sumOneHour.toPrecision(4);
-    var sumToPrintCheapHour = sumCheapHour.toPrecision(4);
+    var sumToPrint = sumNow.toFixed(2);
+    var sumToPrintOneHour = sumOneHour.toFixed(2);
+    var sumToPrintCheapHour = sumCheapHour.toFixed(2);
     var cheapHourString = cheapHour.toString();
     var cheapHourPadded = cheapHourString.padStart(2, '0');
     nowPrice.innerHTML = '';
