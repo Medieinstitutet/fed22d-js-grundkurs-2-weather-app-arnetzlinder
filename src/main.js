@@ -70,6 +70,10 @@ function getElectricityAreaPrices(area) {
         // return electricityPrices[0][20];
         console.log(electricityPrices[0][9]);
         displayElectricityPrice();
+        window.scrollTo({
+            top: 700,
+            behavior: 'smooth'
+        });
     })["catch"](function (err) {
         console.error('Error fetching electricity prices:', err);
     });
