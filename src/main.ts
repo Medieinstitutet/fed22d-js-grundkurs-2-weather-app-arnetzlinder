@@ -121,7 +121,7 @@ function getActivityCost(activity: string) {
 }
 
 function chooseElectricityArea(e: Event) {
-  /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv */
+  /* Här lägger jag in om kunden väljer område ett visas elprisområde ett osv. */
   const element = e.currentTarget as HTMLSelectElement;
   switch (element.value) {
     case 'electricityArea1':
@@ -142,7 +142,25 @@ function chooseElectricityArea(e: Event) {
 }
 
 function chooseActivity(e: Event) {
-  // Här lägger jag in att kunden kan vlja vilken aktivitet hen vill utföra
+  // Kunden får välja vilken aktivitet hen vill utföra samt om hen vill ha en notifikation om när elpriset är som lägst
+  if (!Notification) {
+    console.log('Notifieringar är inte tillgängliga i den här webbläsaren.');
+  }
+  if (Notification.permission !== 'granted') {
+    Notification.requestPermission()
+      .then((permission) => {
+        if (permission === 'granted') {
+          const options = {
+            body: 'Billigaste timmen att göra detta är '.concat(cheapHour.toString()),
+            img: '../../public/photos/fire.jpg',
+          };
+          const notification = new Notification('Notification', options);
+        }
+      })
+      .catch(() => {
+      });
+  }
+
   const element = e.currentTarget as HTMLSelectElement;
   switch (element.value) {
     case 'shower':
