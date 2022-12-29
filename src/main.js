@@ -52,7 +52,10 @@ function displayActivityCost() {
     var sumToPrintOneHour = sumOneHour.toFixed(2);
     var sumToPrintCheapHour = sumCheapHour.toFixed(2);
     var cheapHourString = cheapHour.toString();
-    var cheapHourPadded = cheapHourString.padStart(2, '0');
+    var cheapHourPadded = cheapHourString;
+    if (cheapHour < 10) {
+        cheapHourPadded = '0'.concat(cheapHourString);
+    }
     nowPrice.innerHTML = '';
     nowPrice.innerHTML += "\n  ".concat(sumToPrint, " SEK\n  ");
     oneHourPrice.innerHTML = '';
@@ -128,21 +131,22 @@ function chooseElectricityArea(e) {
 }
 function chooseActivity(e) {
     // Kunden får välja vilken aktivitet hen vill utföra samt om hen vill ha en notifikation om när elpriset är som lägst
-    if (!('Notification' in window)) {
-        console.log('Notifieringar är inte tillgängliga i den här webbläsaren.');
+    if ('Notification' in window) {
+        if (true) {
+            Notification.requestPermission()
+                .then(function (permission) {
+                if (permission === 'granted') {
+                    var options = {
+                        body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
+                        img: '../../public/photos/fire.jpg'
+                    };
+                    var notification = new Notification('Notification', options);
+                }
+            })["catch"](function () { });
+        }
     }
-    else if (Notification.permission !== 'granted') {
-        Notification.requestPermission()
-            .then(function (permission) {
-            if (permission === 'granted') {
-                var options = {
-                    body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
-                    img: '../../public/photos/fire.jpg'
-                };
-                var notification = new Notification('Notification', options);
-            }
-        })["catch"](function () {
-        });
+    else {
+        // API not supported
     }
     var element = e.currentTarget;
     switch (element.value) {

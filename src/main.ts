@@ -56,7 +56,10 @@ function displayActivityCost() {
   const sumToPrintOneHour = sumOneHour.toFixed(2);
   const sumToPrintCheapHour = sumCheapHour.toFixed(2);
   const cheapHourString = cheapHour.toString();
-  const cheapHourPadded = cheapHourString.padStart(2, '0');
+  let cheapHourPadded = cheapHourString;
+  if (cheapHour < 10) {
+    cheapHourPadded = '0'.concat(cheapHourString);
+  }
   nowPrice.innerHTML = '';
   nowPrice.innerHTML += `
   ${sumToPrint} SEK
@@ -146,21 +149,25 @@ function chooseElectricityArea(e: Event) {
 
 function chooseActivity(e: Event) {
   // Kunden får välja vilken aktivitet hen vill utföra samt om hen vill ha en notifikation om när elpriset är som lägst
-  if (!('Notification' in window)) {
-    console.log('Notifieringar är inte tillgängliga i den här webbläsaren.');
-  } else if (Notification.permission !== 'granted') {
-    Notification.requestPermission()
-      .then((permission) => {
-        if (permission === 'granted') {
-          const options = {
-            body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
-            img: '../../public/photos/fire.jpg',
-          };
-          const notification = new Notification('Notification', options);
-        }
-      })
-      .catch(() => {
-      });
+  if ('Notification' in window) {
+    if (true) {
+      Notification.requestPermission()
+
+        .then((permission) => {
+          if (permission === 'granted') {
+            const options = {
+              body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
+              img: '../../public/photos/fire.jpg',
+            };
+
+            const notification = new Notification('Notification', options);
+          }
+        })
+
+        .catch(() => {});
+    }
+  } else {
+  // API not supported
   }
 
   const element = e.currentTarget as HTMLSelectElement;
