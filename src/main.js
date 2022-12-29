@@ -133,7 +133,7 @@ function chooseActivity(e) {
             .then(function (permission) {
             if (permission === 'granted') {
                 var options = {
-                    body: 'Billigaste timmen att göra detta är '.concat(cheapHour.toString()),
+                    body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
                     img: '../../public/photos/fire.jpg'
                 };
                 var notification = new Notification('Notification', options);

@@ -151,7 +151,7 @@ function chooseActivity(e: Event) {
       .then((permission) => {
         if (permission === 'granted') {
           const options = {
-            body: 'Billigaste timmen att göra detta är '.concat(cheapHour.toString()),
+            body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
             img: '../../public/photos/fire.jpg',
           };
           const notification = new Notification('Notification', options);
