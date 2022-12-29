@@ -16,11 +16,14 @@ let sumNow: number;
 let sumOneHour: number;
 let sumCheapHour: number;
 let averageElectricityPrice = 0;
+let showAppInformation = false;
 
 function appInformation() {
-  if (infoBox.style.visibility === 'hidden') {
+  if (!showAppInformation) {
+    showAppInformation = true;
     infoBox.style.visibility = 'visible';
   } else {
+    showAppInformation = false;
     infoBox.style.visibility = 'hidden';
   }
 }
@@ -143,10 +146,9 @@ function chooseElectricityArea(e: Event) {
 
 function chooseActivity(e: Event) {
   // Kunden får välja vilken aktivitet hen vill utföra samt om hen vill ha en notifikation om när elpriset är som lägst
-  if (!Notification) {
+  if (!('Notification' in window)) {
     console.log('Notifieringar är inte tillgängliga i den här webbläsaren.');
-  }
-  if (Notification.permission !== 'granted') {
+  } else if (Notification.permission !== 'granted') {
     Notification.requestPermission()
       .then((permission) => {
         if (permission === 'granted') {
