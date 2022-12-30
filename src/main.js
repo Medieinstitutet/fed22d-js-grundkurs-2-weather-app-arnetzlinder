@@ -45,7 +45,7 @@ function displayElectricityPrice() {
     averageElectricityPrice /= 24;
     if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
         var e = document.querySelector('.electricityPriceBackground');
-        e.style.backgroundImage = frost_jpg_1["default"];
+        e.style.backgroundImage = "url(".concat(frost_jpg_1["default"], ")");
         e.style.opacity = '0.7';
         document.body.classList.add('highPrice');
     }

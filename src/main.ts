@@ -46,7 +46,7 @@ function displayElectricityPrice() {
   averageElectricityPrice /= 24;
   if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
     const e: HTMLElement = document.querySelector('.electricityPriceBackground') as HTMLElement;
-    e.style.backgroundImage = frost;
+    e.style.backgroundImage = `url(${frost})`;
     e.style.opacity = '0.7';
     document.body.classList.add('highPrice');
   }
