@@ -140,7 +140,9 @@ function chooseActivity(e) {
                         body: 'Billigaste timmen att göra detta är klockan '.concat(cheapHour.toString(), ':00'),
                         img: '../../public/photos/fire.jpg'
                     };
+                    /* eslint-disable  @typescript-eslint/no-unused-vars */
                     var notification = new Notification('Notification', options);
+                    console.log(notification);
                 }
             })["catch"](function () { });
         }
