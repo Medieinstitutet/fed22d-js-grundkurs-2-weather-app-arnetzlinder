@@ -1,70 +1,88 @@
 <!DOCTYPE html>
 <html lang="sv"> 
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/js-template/favicon.ico" />
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/ico" href="/FED22D-JS-GRUNDKURS-2-WEATHER-APP-ARNETZLINDER/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/88669a913c.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Rubik:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/88669a913c.js" crossorigin="anonymous"></script>
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elpriskollen</title>
-    <script type="module" crossorigin src="/js-template/assets/index.ce21c5e5.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.3aa7a146.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Susanne Arnetz Linder">
+    <meta name="keywords" content="Front End Developer, HTML, CSS, Javascript, Typescript, API, portfolio">
+    <meta property="og:title" content="Javascript/Typescript project by Front End Developer Medieinstitutet 2022">
+    <meta property="og:image" content="./public/photos/electricity.jpg">
+    <meta property="og:url" content="https://energikollen.arnetzlinder.com/">
+    <meta property="og:description" content="Front End-utvecklare som söker LIA hösten 2023. Kommer ut med kunskaper i React, Node.js, HTML, CSS, Javascript, testning mm. Nås på LinkedIn">
+    <title>Energikollen</title>
+    <script type="module" crossorigin src="/FED22D-JS-GRUNDKURS-2-WEATHER-APP-ARNETZLINDER/assets/index.a1b74743.js"></script>
+    <link rel="stylesheet" href="/FED22D-JS-GRUNDKURS-2-WEATHER-APP-ARNETZLINDER/assets/index.0a952db6.css">
   </head>
   <body>
     <header>
       <div class="header">
-        <img src="/js-template/assets/windTurbine.083cf2c3.gif">
+        <img src="/FED22D-JS-GRUNDKURS-2-WEATHER-APP-ARNETZLINDER/assets/windTurbine.083cf2c3.gif" alt="Snurrande vindkraftverk">
         <div class="appName"> 
           <h1>Energikollen</h1>
+        </div>
+        <button class="infoButton"> Information om Energikollen</button>
+        <div class="infoBox">
+          <h2> Så här har jag räknat: </h2>
+          <p> Energikollen skapades som ett projekt i kursen i Javascript vid Medieinstitutet FrontEndDeveloper-utbildning december 2022.
+            Den hämtar information från ett externt API och berättar dels vad elpriset är just nu, dels vad
+            det skulle kosta att göra tre olika aktiviteter nu, om en timme och den billigaste timmen. När priset för el
+            är över medel för dygnet byts temat i Energikollen och bakgrundsbild och färg på elpriset ändras.
+            Jag har utgått ifrån att en medelförbrukning för 10 minuters dusch är 4,4 kWh, 
+            medelförbrukning för torktumling är 5 kWh och ladda bilen 50 kWh drar ungefär 10 kWh. 
+            Hänsyn är alltså inte taget för olika uppvärmingsmetoder och informationen i denna app 
+            kan inte användas för att se din faktiska förbrukning. Om du vill komma i kontakt med mig finns mina kontaktuppgifter längst ner på sidan.
+          </p>
         </div>
       </div>
     </header>
     <main>
-      <div class="electricityArea">
-        <form>
-          <label for="electricityArea"></label>
-          <select name="electricityArea" class="chooseElectricityArea">
-              <option value="gpsValue" tabindex="0" disabled selected>
-                  Välj elprisområde
-              </option>
-              <option value="electricityArea1" tabindex="0">Elprisområde 1</option>
-              <option value="electricityArea2" tabindex="0">Elprisområde 2</option>
-              <option value="electricityArea3" tabindex="0">Elprisområde 3</option>
-              <option value="electricityArea4" tabindex="0">Elprisområde 4</option>
-          </select> 
-          </form>
+      <div class="electricityAreaContainer">
+        <div class="electricityAreaBackground"></div>
+        <div class="electricityArea">
+          <form>
+            <select name="electricityArea" class="chooseElectricityArea">
+                <option value="gpsValue" disabled selected>
+                    Välj elprisområde
+                </option>
+                <option value="electricityArea1">Elprisområde 1</option>
+                <option value="electricityArea2">Elprisområde 2</option>
+                <option value="electricityArea3">Elprisområde 3</option>
+                <option value="electricityArea4">Elprisområde 4</option>
+            </select> 
+            </form>
+        </div>
       </div>
-      <section class="electricityPrice"> 
-        <h2>Elpris just nu</h2>
-      </section>
-      <section class="electricitySaver">
-        <div class="electricitySaverForm">
-        <form>
-          <label for="electricitySaver"></label>
-          <select name="electricitySaver" class="chooseSpendingMethod">
-              <option value="activity" tabindex="0" disabled selected>
-                  Välj vad du vill göra
-              </option>
-              <option value="shower" tabindex="0">Duscha i tio minuter</option>
-              <option value="dryer" tabindex="0">Torktumla en tvätt</option>
-              <option value="chargeCar" tabindex="0">Ladda bilen motsvarande 50 km körning</option>
-          </select> 
-          </form>
+      <div class="electricityPriceContainer">
+        <div class="electricityPriceBackground"></div>
+        <section class="electricityPrice"> 
+          <h2>Elpris just nu</h2>
+        </section>
+        <div class="electricitySaver">
+          <div class="electricitySaverForm">
+            <form>
+              <select name="electricitySaver" class="chooseSpendingMethod">
+                  <option value="activity" disabled selected>
+                      Välj vad du vill göra
+                  </option>
+                  <option value="shower">Duscha i tio minuter</option>
+                  <option value="dryer">Torktumla en tvätt</option>
+                  <option value="chargeCar">Ladda bilen motsvarande 50 km körning</option>
+              </select> 
+            </form>
+          </div>
+          <div class="electricitySaverInfo">
+            <p>Om du gör det nu:<span class="now"></span></p> <!--funktion som multiplicerar elpriset nu med förbrukningen vid vald aktivitet-->
+            <p> Om du gör det om en timme:<span class="oneHour"></span></p> <!--funktion som multiplicerar elpriset om en timme med förbrukningen vid vald aktivitet-->
+            <p> Om du gör det klockan <span class="cheapHour"></span><span class="cheapPrice"></span></p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
+          </div>
         </div>
-        <div class="electricitySaverInfo">
-          <p>Om du gör det nu:</p> <!--funktion som multiplicerar elpriset nu med förbrukningen vid vald aktivitet-->
-          <p> Om du gör det om en timme:</p> <!--funktion som multiplicerar elpriset om en timme med förbrukningen vid vald aktivitet-->
-          <p> Om du gör det klockan tt:mm:</p> <!-- funktion som tar dygnets billigaste timmes elpris multiplicerat med aktivitetet användaren vill göra -->
-        </div>
-
-      </section>
+      </div>
     </main>
     <footer>
       <!-- Kontaktuppgifter kanske?-->
