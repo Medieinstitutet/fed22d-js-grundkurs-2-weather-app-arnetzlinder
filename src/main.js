@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+var frost_jpg_1 = require("./frost.jpg");
 /* eslint linebreak-style: ["error", "windows"] */
 var infoBtn = document.querySelector('.infoButton');
 var infoBox = document.querySelector('.infoBox');
@@ -42,7 +45,7 @@ function displayElectricityPrice() {
     averageElectricityPrice /= 24;
     if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
         var e = document.querySelector('.electricityPriceBackground');
-        e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
+        e.style.backgroundImage = frost_jpg_1["default"];
         e.style.opacity = '0.7';
         document.body.classList.add('highPrice');
     }

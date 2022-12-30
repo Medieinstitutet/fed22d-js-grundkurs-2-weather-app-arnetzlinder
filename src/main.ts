@@ -1,3 +1,4 @@
+import frost from './frost.jpg';
 /* eslint linebreak-style: ["error", "windows"] */
 const infoBtn: HTMLElement = document.querySelector('.infoButton') as HTMLElement;
 const infoBox: HTMLElement = document.querySelector('.infoBox') as HTMLElement;
@@ -45,7 +46,7 @@ function displayElectricityPrice() {
   averageElectricityPrice /= 24;
   if (Number(electricityPrices[2][date.getHours()]) > averageElectricityPrice) {
     const e: HTMLElement = document.querySelector('.electricityPriceBackground') as HTMLElement;
-    e.style.backgroundImage = 'url(../../public/photos/frost.jpg)';
+    e.style.backgroundImage = frost;
     e.style.opacity = '0.7';
     document.body.classList.add('highPrice');
   }
